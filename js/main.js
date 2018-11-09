@@ -28,21 +28,25 @@ var phrases = [
 
 var numberOfPhrases = 5;
 
-$(document).ready(function(){
-    $("#btGenerator").click(function(){
-	   	var bolsoSpeech = "";
-    	for(var x = 1; x <= $("#inParagraphs").val(); x++) {
-	    	var listNumber = [];
-	    	for (var i = 0; i < numberOfPhrases; ) {
-	    		var num = Math.floor((Math.random() * 24));
-	    		if (listNumber.indexOf(num) == -1) {
-	    			listNumber.push(num);
-	    			bolsoSpeech += phrases[num] + " ";
-	    			i++;
-	    		}
+var generateLoremIpsum = function() {
+	$(document).ready(function(){
+	    $("#btGenerator").click(function(){
+		   	var bolsoSpeech = "";
+	    	for(var x = 1; x <= $("#inParagraphs").val(); x++) {
+		    	var listNumber = [];
+		    	for (var i = 0; i < numberOfPhrases; ) {
+		    		var num = Math.floor((Math.random() * 24));
+		    		if (listNumber.indexOf(num) == -1) {
+		    			listNumber.push(num);
+		    			bolsoSpeech += phrases[num] + " ";
+		    			i++;
+		    		}
+		    	}
+		    	bolsoSpeech += "\n\n";
 	    	}
-	    	bolsoSpeech += "\n\n";
-    	}
-        $("#txBolsoPhrase textarea").text(bolsoSpeech);
-    });
-});
+	        $("#txBolsoPhrase textarea").text(bolsoSpeech);
+	    });
+	});	
+}
+
+generateLoremIpsum();
