@@ -49,4 +49,13 @@ var generateLoremIpsum = function() {
 	});	
 }
 
+var copyToClipboard = function() {
+	$(document).ready(function(){
+	    $("#btCopy").click(function(){
+			$("#txBolsoPhrase textarea").select();
+			document.execCommand("copy");
+	    });
+	});	
+}
 generateLoremIpsum();
+copyToClipboard();
